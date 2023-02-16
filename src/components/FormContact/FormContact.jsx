@@ -29,7 +29,6 @@ export const FormContact = () => {
       toast.warn(`${form.name.value} is already in contacts!`);
       event.target.reset();
       return;
-
     } else {
       dispatch(addContact(form.name.value, form.number.value));
     }
@@ -46,10 +45,10 @@ export const FormContact = () => {
           <ContactInput
             type="text"
             name="name"
-            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             placeholder="Only letters, apostrophe, dash and spaces."
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            // required
+            required
           />
         </FieldCaption>
         <FieldCaption htmlFor="number">
@@ -57,10 +56,10 @@ export const FormContact = () => {
           <ContactInput
             type="tel"
             name="number"
-            // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             placeholder="Only digits.Can spaces, dashes, parentheses, start with +."
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            // required
+            required
           />
         </FieldCaption>
         <BtnContact>Add Contact</BtnContact>

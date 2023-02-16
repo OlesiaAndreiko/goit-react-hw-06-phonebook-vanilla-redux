@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Contact } from '../Contact/Contact';
 import { getContacts, getFilter } from '../../redux/selectors';
-import { List } from './ContactList.staled';
+import { Contact } from '../Contact/Contact';
 import { Heading } from 'components/Heading/Hading';
+import { List } from './ContactList.staled';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -20,15 +20,16 @@ export const ContactList = () => {
 
   return (
     <>
-      <Heading title={'contacts'}></Heading>
-    {  newContacts.length?
-    <List>
-        {newContacts.map(contact => (
-          <Contact key={contact.id} contact={contact} />
-        ))}
-      </List>
-      : 
-      <p>Start adding contacts!</p>}
+      <Heading title={'contacts'}/>
+      {newContacts.length ? (
+        <List>
+          {newContacts.map(contact => (
+            <Contact key={contact.id} contact={contact} />
+          ))}
+        </List>
+      ) : (
+        <p>Start adding contacts!</p>
+      )}
     </>
   );
 };

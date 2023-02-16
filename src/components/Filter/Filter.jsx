@@ -12,7 +12,7 @@ export const Filter = () => {
 
   return (
     <>
-    <Heading title={'Search contacts'}></Heading>
+    <Heading title={'Search contacts'} />
     <FilerWrap>
       <FieldCaption htmlFor="search">
         Find contact by name
@@ -21,6 +21,7 @@ export const Filter = () => {
           name="search"
           value={filter}
           onChange={handleChange}
+          placeholder="Please start typing name..."
         />
       </FieldCaption>
     </FilerWrap>
