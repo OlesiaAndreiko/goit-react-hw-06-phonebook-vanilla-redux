@@ -1,7 +1,12 @@
 import PropTypes from 'prop-types';
 import {FilerWrap, FieldCaption, ContactInput} from "./Filter.styled"
+import { useSelector } from 'react-redux';
+import { getFilter } from 'redux/selectors';
 
-export const Filter = ({ search, onChange }) => {
+export const Filter = ({ onChange }) => {
+
+  const filter = useSelector(getFilter) ;
+
   return (
     <FilerWrap>
       <FieldCaption htmlFor="search">
@@ -9,7 +14,7 @@ export const Filter = ({ search, onChange }) => {
         <ContactInput 
         type="text" 
         name="search" 
-        value={search} 
+        value={filter} 
         onChange={onChange} />
       </FieldCaption>
     </FilerWrap>
@@ -17,6 +22,6 @@ export const Filter = ({ search, onChange }) => {
 };
 
 Filter.propTypes = {
-  search: PropTypes.string.isRequired,
+  // search: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
