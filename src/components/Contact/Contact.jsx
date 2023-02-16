@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-import {ItemContact, BtnDelete} from "./Contact.styled"
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/actions';
+import { ItemContact, BtnDelete } from './Contact.styled';
 
-export const Contact = ({ contact, onDelete }) => {
+export const Contact = ({ contact }) => {
   const { id, name, number } = contact;
+  const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    onDelete(id);
-  };
+  const handleDelete = () => dispatch(deleteContact(id));
 
   return (
     <>
@@ -21,12 +22,10 @@ export const Contact = ({ contact, onDelete }) => {
   );
 };
 
-
 Contact.propTypes = {
   contact: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }).isRequired,
-  onDelete: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }).isRequired,
 };

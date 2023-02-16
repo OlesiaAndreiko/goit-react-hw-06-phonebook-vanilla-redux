@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Form = styled.form.attrs({ autoComplete: 'off' })`
+export const Form = styled.form.attrs({ autocomplete: 'off' })`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

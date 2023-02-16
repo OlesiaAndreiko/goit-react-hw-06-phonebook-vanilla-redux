@@ -18,7 +18,7 @@ export const deleteContact = contactId => {
   };
 };
 
-export const filtersContactList = value => {
+export const searchContact = value => {
   return {
     type: 'filters/searchContact',
     payload: value,
