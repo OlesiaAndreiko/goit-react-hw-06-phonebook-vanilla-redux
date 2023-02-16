@@ -21,11 +21,14 @@ export const ContactList = () => {
   return (
     <>
       <Heading title={'contacts'}></Heading>
-      <List>
+    {  newContacts.length?
+    <List>
         {newContacts.map(contact => (
           <Contact key={contact.id} contact={contact} />
         ))}
       </List>
+      : 
+      <p>Start adding contacts!</p>}
     </>
   );
 };
