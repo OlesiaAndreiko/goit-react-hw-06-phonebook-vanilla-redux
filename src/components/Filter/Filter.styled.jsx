@@ -17,7 +17,7 @@ export const FieldCaption = styled.label`
   margin-bottom: 10px;
 `;
 
-export const ContactInput = styled.input`
+export const ContactInput = styled.input.attrs({ autoComplete: 'off' })`
   display: block;
   width: 430px;
   height: 20px;
