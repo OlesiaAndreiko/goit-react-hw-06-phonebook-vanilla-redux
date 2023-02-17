@@ -1,8 +1,10 @@
 import initalContacts from '../components/contacts.json';
 import { combineReducers } from 'redux';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { persistReducer } from 'redux-persist';
 
-
-const contactsInitialState = JSON.parse(localStorage.getItem('contacts')) ?? initalContacts;
+const contactsInitialState = initalContacts;
+// const contactsInitialState = JSON.parse(localStorage.getItem('contacts')) ?? initalContacts;
 
 const contactsReducer = (state = contactsInitialState, action) => {
   switch (action.type) {
@@ -17,7 +19,6 @@ const contactsReducer = (state = contactsInitialState, action) => {
   }
 };
 
-
 const filtersInitialState = '';
 
 const filtersReducer = (state = filtersInitialState, action) => {
@@ -30,8 +31,16 @@ const filtersReducer = (state = filtersInitialState, action) => {
   }
 };
 
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['contacts'],
+};
+
+const persistedReducer = 
+persistReducer(persistConfig, contactsReducer);
 
 export const rootReducer = combineReducers({
-  contacts: contactsReducer,
+  contacts: persistedReducer,
   filters: filtersReducer,
 });
