@@ -1,4 +1,4 @@
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getContacts, getFilter } from '../../redux/selectors';
 import { Contact } from '../Contact/Contact';
@@ -13,10 +13,10 @@ export const ContactList = () => {
     contact.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // useEffect(
-  //   () => localStorage.setItem('contacts', JSON.stringify(contacts)),
-  //   [contacts]
-  // );
+  useEffect(
+    () => localStorage.setItem('contacts', JSON.stringify(contacts)),
+    [contacts]
+  );
 
   return (
     <>
